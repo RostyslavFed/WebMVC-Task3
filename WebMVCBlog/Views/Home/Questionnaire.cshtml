@@ -1,0 +1,45 @@
+﻿@using WebMVCBlog.App_Code;
+
+<div class="container p-2 bg-light ">
+	<div class="row">
+		<div class="p-3 col-md-10">
+			<form method="post">
+				<div class="form-group row">
+					<h3 class="pl-4">Оставить резюме</h3>
+				</div>
+				<div class="form-group row">
+					<label class="col-md-2">Введите свое имя:</label>
+					<input type="text" alt="authorName" name="Name" placeholder="Enter your name" class="form-control col-md" />
+				</div>
+				<div class="form-group row">
+					<label class="col-md-2">Email address</label>
+					<input type="email" class="form-control col-md" name="Email" placeholder="Enter email">
+				</div>
+				<div class="form-group row">
+					<div class="col-md-2">Место жительства</div>
+					<div class="form-check col-md-2">
+						<input class="form-check-input" type="radio" name="PlaceOfResidence" id="exampleRadios1" value="Харьков" checked>
+						<label class="form-check-label" for="exampleRadios1">Я из Харькова</label>
+					</div>
+					<div class="form-check col-md-offset-4">
+						<input class="form-check-input" type="radio" name="PlaceOfResidence" id="exampleRadios2" value="Не харьков">
+						<label class="form-check-label" for="exampleRadios2">Не из Харькова</label>
+					</div>
+				</div>
+				@Html.GetListCheckBox(new List<string>() { "C", "C++", "C#", "Java", "JS", "Python", "php" }, "ProgramingLanguges")
+				<div class="form-group row">
+					<label class="col-md-2">Введите пожелания:</label>
+					<textarea name="Comment" cols="40" rows="3" class="form-control col-md"></textarea>
+				</div>
+				<button type="submit" class="btn btn-primary col-md">Отправить</button>
+			</form>
+		</div>
+		<div class="col-md-2 bg-light border border-primary">
+			<nav class="nav nav-pills d-md-inline-block">
+				<a class="nav-link" href="/Home/Index">Home</a>
+				<a class="nav-link" href="/Home/Guest">Guest</a>
+				<a class="nav-link active" href="/Home/Questionnaire">Questionnaire</a>
+			</nav>
+		</div>
+	</div>
+</div>

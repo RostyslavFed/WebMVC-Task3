@@ -1,0 +1,56 @@
+﻿@using WebBlog.DAL.Entities;
+@model IEnumerable<Comment>
+
+<div class="bg-light">
+	<div class="container pt-2 pb-2">
+		<div class="row">
+			<div class="col-md-10 p-2 bg-info text-center">
+				@{ bool b = true;}
+				@foreach (var comment in Model)
+				{
+					if (b)
+					{
+						<div class="row m-3 p-3 bg-light text-right border border-success d-md-inline-block">
+							<div class="h5 font-italic">@comment.AuthorName</div>
+							<div class="small">@comment.Date.ToShortDateString()</div>
+							<div class="pl-2 pr-2">@comment.Text</div>
+						</div>
+					}
+					else
+					{
+						<div class="row m-3 p-3 bg-light text-left border border-success d-md-inline-block">
+							<div class="h5 font-italic">@comment.AuthorName</div>
+							<div class="small">@comment.Date.ToShortDateString()</div>
+							<div class="pl-2 pr-2">@comment.Text</div>
+						</div>
+					}
+					b = !b;
+				}
+			</div>
+			<div class="col-md-2 bg-light border border-primary">
+				<nav class="nav nav-pills d-md-inline-block">
+					<a class="nav-link" href="/Home/Index">Home</a>
+					<a class="nav-link active" href="/Home/Guest">Guest</a>
+					<a class="nav-link" href="/Home/Questionnaire">Questionnaire</a>
+				</nav>
+			</div>
+		</div>
+		<div class="p-3">
+			<form method="post">
+				<div class="form-group row">
+					<h3>Оставить отзыв</h3>
+				</div>
+				<div class="form-group row">
+					<label class="col-md-2">Введите свое имя:</label>
+					<input type="text" alt="authorName" name="AuthorName" class="form-control col-md" />
+				</div>
+				<div class="form-group row">
+					<label class="col-md-2">Введите отзыв:</label>
+					<textarea name="Text" cols="40" rows="3" class="form-control col-md"></textarea>
+				</div>
+				<button type="submit" class="btn btn-primary col-md">Отправить</button>
+			</form>
+		</div>
+	</div>
+</div>
+

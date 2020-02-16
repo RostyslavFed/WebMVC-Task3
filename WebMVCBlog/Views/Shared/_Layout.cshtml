@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/Style/style.css")
+    @Styles.Render("~/Content/Style/bootstrap.min.css")
+</head>
+<body>
+    <header>
+        <div class="w-100 h-100 pl-5 bg-primary d-md-inline-block">
+            <div class="float-left p-3">
+                <img src="~/Content/Images/icon.png" alt="icon-blog" class="img-fluid img-logo" />
+            </div>
+            <div class="text-center pt-5">
+                <h3>My .Net MVC Blog</h3>
+            </div>
+        </div>
+    </header>
+    <main>
+        @RenderBody()
+    </main>
+    <footer>
+        <div class="w-100 h-100 bg-secondary p-4">
+            <p class="float-right back-to-top">
+                <a href="#"><img src="~/Content/Images/arrow.png" class="img-arrow"></a>
+            </p>
+            <p class="text-center pl-5 footer-label text-dark">© Fedorenko Rostyslav</p>
+        </div>
+    </footer>
+    @Scripts.Render("~/Scripts/bootstrap.min.js")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
